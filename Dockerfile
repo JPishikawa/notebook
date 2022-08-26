@@ -1,8 +1,11 @@
 FROM registry.access.redhat.com/ubi8/python-39:latest
 
-#ARG work_dir="/src/"
+RUN pwd && ls
 
-#WORKDIR ${work_dir}
+
+ARG work_dir="/src/"
+
+WORKDIR ${work_dir}
 
 #ENV POETRY_HOME=/opt/poetry
 
@@ -10,9 +13,9 @@ RUN curl -sSL https://install.python-poetry.org | python - && \
     export PATH=$PATH:~/.local/bin/ && \
     poetry config virtualenvs.create false
 
-#RUN git clone https://github.com/JPishikawa/notebook && \
-#    cd ./notebook && \
-RUN poetry install 
+RUN git clone https://github.com/JPishikawa/notebook && \
+    cd ./notebook && \
+    poetry install 
 
 
 ENTRYPOINT ["jupyter", "lab"] 

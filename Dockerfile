@@ -4,14 +4,11 @@ ARG work_dir="/src/"
 
 WORKDIR ${work_dir}
 
-ENV POETRY_HOME=/opt/poetry
+#ENV POETRY_HOME=/opt/poetry
 
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python && \
-    cd /usr/local/bin && \
-    ln -s /opt/poetry/bin/poetry && \
+RUN curl -sSL https://install.python-poetry.org | python - && \
+    export PATH=$PATH:~/.local/bin/ && \
     poetry config virtualenvs.create false
-
-WORKDIR ${work_dir}
 
 RUN git clone https://github.com/JPishikawa/notebook && \
     cd ./notebook && \

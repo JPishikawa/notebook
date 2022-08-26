@@ -1,7 +1,5 @@
 FROM registry.access.redhat.com/ubi8/python-39:latest
 
-RUN pwd && ls
-
 
 ARG work_dir="/src/"
 
@@ -11,9 +9,9 @@ WORKDIR ${work_dir}
 
 RUN curl -sSL https://install.python-poetry.org | python - && \
     export PATH=$PATH:~/.local/bin/ && \
-    poetry config virtualenvs.create false
-
-RUN git clone https://github.com/JPishikawa/notebook && \
+    poetry config virtualenvs.create false && \
+    chmod -R 755. &&\
+    git clone https://github.com/JPishikawa/notebook && \
     cd ./notebook && \
     poetry install 
 

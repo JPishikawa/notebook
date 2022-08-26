@@ -10,9 +10,9 @@ RUN curl -sSL https://install.python-poetry.org | python - && \
     export PATH=$PATH:~/.local/bin/ && \
     poetry config virtualenvs.create false
 
-RUN git clone https://github.com/JPishikawa/notebook && \
-    cd ./notebook && \
-    poetry install 
+#RUN git clone https://github.com/JPishikawa/notebook && \
+#    cd ./notebook && \
+RUN poetry install 
 
 
 ENTRYPOINT ["jupyter", "lab"] 

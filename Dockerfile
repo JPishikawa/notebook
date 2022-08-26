@@ -1,8 +1,8 @@
 FROM registry.access.redhat.com/ubi8/python-39:latest
 
-ARG work_dir="/src/"
+#ARG work_dir="/src/"
 
-WORKDIR ${work_dir}
+#WORKDIR ${work_dir}
 
 #ENV POETRY_HOME=/opt/poetry
 

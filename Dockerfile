@@ -15,11 +15,15 @@ USER root
 
 RUN git clone https://github.com/JPishikawa/notebook && \
     cd ./notebook && \
-    poetry install 
+    poetry install
+
+RUN chown default -R /src/notebook/ && \
+    chown default -R /opt/app-root/src/
+    #ls -la /opt/app-route
 
 USER 1001
 
 ENTRYPOINT ["jupyter", "lab"] 
-CMD ["--ip=0.0.0.0, --NotebookApp.token='', --port=8888"] 
+#CMD ["--ip=0.0.0.0"]
 EXPOSE 8888
 

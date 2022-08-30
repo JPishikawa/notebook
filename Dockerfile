@@ -1,5 +1,5 @@
 #FROM registry.access.redhat.com/ubi8/python-39:latest
-FROM quay.io/repository/thoth-station/s2i-minimal-notebook:latest
+FROM quay.io/thoth-station/s2i-minimal-notebook:latest
 
 ARG work_dir="/src/"
 
